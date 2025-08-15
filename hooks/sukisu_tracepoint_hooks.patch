@@ -68,9 +68,8 @@ diff --git a/fs/exec.c b/fs/exec.c
 index b1b9db56a..0252689da 100644
 --- a/fs/exec.c
 +++ b/fs/exec.c
-@@ -78,6 +78,10 @@
+@@ -78,6 +78,9 @@
  #include <trace/hooks/sched.h>
- 
 +#if defined(CONFIG_KSU) && defined(CONFIG_KSU_TRACEPOINT_HOOK)
 +#include <../drivers/kernelsu/ksu_trace.h>
 +#endif
