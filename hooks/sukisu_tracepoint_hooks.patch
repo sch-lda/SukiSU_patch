@@ -70,14 +70,12 @@ index b1b9db56a..0252689da 100644
 +++ b/fs/exec.c
 @@ -78,6 +78,10 @@
  #include <trace/hooks/sched.h>
- #endif
  
 +#if defined(CONFIG_KSU) && defined(CONFIG_KSU_TRACEPOINT_HOOK)
 +#include <../drivers/kernelsu/ksu_trace.h>
 +#endif
 +
- EXPORT_TRACEPOINT_SYMBOL_GPL(task_rename);
- 
+
  static int bprm_creds_from_file(struct linux_binprm *bprm);
 @@ -2037,6 +2041,9 @@ static int do_execve(struct filename *filename,
  {
